@@ -12,7 +12,9 @@ var tempX=0;
 var tempY=0;
 var tx=0;
 var ty=0;
-var colour="green";
+var col=["green","red","blue","black","orange","gold","silver"];
+var colour="orange";
+var randomColor=0;
 
 function getMouseXY(e) {
     tempX = e.pageX
@@ -30,8 +32,17 @@ function getMouseXY(e) {
 
 function animation(x,y,n)
 {
+  if(randomColor==1)
+  {
+   colour=col[Math.floor((Math.random() * 10)%7)];
    ctx.fillStyle = colour; 
    ctx.fillRect(x,y,n,n);
+   }
+   else
+   {
+   ctx.fillStyle = colour; 
+   ctx.fillRect(x,y,n,n);
+   }
    setInterval(function(){
      ctx.fillStyle = "#FFF"; 
      ctx.clearRect(x,y,n,n);
@@ -45,5 +56,13 @@ function animation(x,y,n)
 
 function setTrailColor(c)
 {
-  colour=c;
+  if(c=="random")
+  {
+	randomColor=1;
+  }
+  else
+  {
+    randomColor=0;
+	colour=c;
+  }
 }
