@@ -43,7 +43,7 @@ function animation(x,y,n)
    ctx.fillStyle = colour; 
    ctx.fillRect(x,y,n,n);
    }
-   setInterval(function(){
+   setTimeout(function(){
      ctx.fillStyle = "#FFF"; 
      ctx.clearRect(x,y,n,n);
      if(n>0)
